@@ -1,6 +1,11 @@
 package com.example.junitdemo;
 
+import android.content.Context;
+import android.content.Intent;
+
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
 
@@ -11,11 +16,16 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
-    @Test
     public void testIcheck() {
         assertTrue(MainActivity.icheck(2, 4));
     }
+
+
+    @Test
+    public void testCreateIntent(){
+        Context context = Mockito.mock(Context.class);
+        Intent t = MainActivity.createIntent(context, "edd");
+        assertNotNull(t);
+    }
+
 }
